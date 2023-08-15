@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+  <bean id="address" class="TestProject.Address">
+        <constructor-arg name="country" value="Egypt"/>
+        <constructor-arg name="city" value="Giza"/>
+</bean>
+<bean id="weatherService" class="TestProject.WeaterServiceImpi">
+<!--    <constructor-arg>
+        <ref bean="weatherDoa"/>
+    </constructor-arg>-->
+    <lookup-method bean="weatherDoa" name="getDoa"  />
+    
+</bean>
+    <bean id="weatherDoa" class="TestProject.WeatherDoa"/>
+    
+    <bean id="pizzaShop" class="TestProject.PizzaShop" scope="singleton">
+        
+        <lookup-method name="makePizza" bean="pizza"/>
+        <lookup-method name="makeVeggiePizza" bean="veggiePizza"/>
+    </bean>
+       <bean id="pizza" class="TestProject.Pizza" scope="prototype"/>
+       <bean id="veggiePizza" class="TestProject.Pizza" scope="prototype">
+            <property name="isVeg" value="true"/>
+          </bean>
+    
+    <!--
+     <constructor-arg>
+            <list>
+                <value>Caire</value>
+            </list>
+      
+        </constructor-arg>
+        <constructor-arg>
+            <map>
+                <entry key="Phone"  value="01152375979"/>
+                <entry key="Email"   value="mohamedaljazwiee@gmail.com"/>
+              </map>
+        </constructor-arg>
+    </bean>
+    <bean id="student1"
+            class="TestProject.Student">
+         <property name="name" value="Hello First Spring "/>
+        <constructor-arg name="studentId" value="1"/>
+        <constructor-arg name="name" value="Mohamed"/>
+        <constructor-arg>
+            <list>
+                <value>Caire</value>
+            </list>
+      
+        </constructor-arg>
+      </bean>
+    !-->
+</beans>

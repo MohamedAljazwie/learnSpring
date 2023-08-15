@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+   >       
+     <!-- this attributes used in beans tag when you make init and desytory methods  coommon for all beans  -->
+    <!-- default-init-method="init" default-destroy-method="predestory" -->
+
+   
+    <bean autowire="byName" class="spring.core.xmlConfig.classes.Triangle" id="triangle" init-method="init" destroy-method="predestory" />
+    <bean class="spring.core.xmlConfig.classes.Point" id="pointA">
+        <property name="x" value="0"/>
+        <property name="y" value="0"/>
+    </bean>
+  
+    <bean class="spring.core.xmlConfig.classes.Point" id="pointB">
+        <property name="x" value="-20"/>
+        <property name="y" value="0"/>
+    </bean>
+  
+    <bean class="spring.core.xmlConfig.classes.Point" id="pointC">
+        <property name="x" value="20"/>
+        <property name="y" value="0"/>
+    </bean>
+    
+    
+</beans>

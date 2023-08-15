@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       	xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+          http://www.springframework.org/schema/mvc
+           http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+          http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd                   
+     http://www.springframework.org/schema/aop         
+     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+ 
+   
+    <context:component-scan base-package="spring.core.xmlConfig.ClassesWithAnnotaions"/>
+     <mvc:annotation-driven />
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+    	<bean id="employeeImpi" class="spring.core.xmlConfig.classes.EmployeeImpl" />
+    
+    <bean id="company" class="spring.core.xmlConfig.classes.Company" >
+        <property name="compName" value="ITS-GBS"/>
+     </bean>
+     
+     <bean id="address" class="spring.core.xmlConfig.classes.Address">
+         <property name="city" value="Nacer City"/>
+     </bean> 
+     
+     <bean id="employeeInfo" class="spring.core.xmlConfig.ClassesWithAnnotaions.Employee">
+         <property name="id" value="6431"  />
+         <property name="firstName" value="Mohamed"  />
+         <property name="lastName" value="Sayed Aljazwiee"  />
+         <property name="designation" value="Software Develooper "  />
+     </bean>
+</beans>

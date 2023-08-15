@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    
+    
+    <bean class="spring.core.xmlConfig.classes.EmployeeFactory" factory-method="createEmployeeOfType" id="manager">
+        <constructor-arg value="manager"/> 
+        
+    </bean>
+    
+     <bean class="spring.core.xmlConfig.classes.EmployeeFactory" factory-method="createEmployeeOfType" id="director">
+        <constructor-arg value="director"/> 
+        
+    </bean>
+    
+    
+    <bean class="spring.core.xmlConfig.classes.EmployeeFactory" id="employeefactory"/>
+    
+     <bean factory-bean="employeefactory" factory-method="createEmployee" id="technicalmanager">
+        <constructor-arg value="technicalmanager"/> 
+        
+    </bean>
+    
+     <bean factory-bean="employeefactory" factory-method="createEmployee" id="qcmanager">
+        <constructor-arg value="qcmanager"/> 
+        
+    </bean>
+    
+</beans>

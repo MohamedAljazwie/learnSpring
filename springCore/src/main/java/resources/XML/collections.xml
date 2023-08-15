@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   
+    <bean class="spring.core.xmlConfig._4_CollectionInjections" id="collectionInjections">
+        <property name="stringList">
+            <list>
+                <value>stringList1</value>
+                <value>stringList2</value>
+                <value>stringList3</value>
+                <value>stringList4</value>
+            </list>
+        </property>
+         
+         
+        <property name="stringSet">
+            <set>
+                <value>stringSet1</value>
+                <value>stringSet1</value>
+                <value>stringSet1</value>
+                <value>stringSet1</value>
+            </set>
+        </property>
+         
+         
+        <property name="stringMap">
+            <map>
+                <entry key="1" value="stringMap1"/>
+                <entry key="2" value="stringMap2"/>
+                <entry key="3" value="stringMap3"/>
+                <entry key="4" value="stringMap4"/>
+            </map>
+                  
+        </property>
+        
+        <property name="properties">
+            <props>
+                <prop key="1">properties1</prop>
+                <prop key="2">properties2</prop>
+                <prop key="3">properties3</prop>
+                <prop key="4">properties4</prop>
+
+            </props>
+        </property>
+        
+        
+        
+        
+        <property name="pointList">
+            <list value-type="spring.core.xmlConfig.classes.Point">
+                <ref bean="pointA"/>
+                
+            </list>
+        </property>
+         
+         
+        <property name="pointSet">
+            <set>
+                 <bean class="spring.core.xmlConfig.classes.Point" id="pointB">
+                    <property name="x" value="-20"/>
+                    <property name="y" value="0"/>
+                </bean>
+            </set>
+        </property>
+         
+         
+        <property name="pointMap">
+            <map>
+                <entry key="1" value-ref="pointC"/>
+            </map>
+                  
+        </property>
+             
+    </bean>
+        
+        
+        
+    <bean class="spring.core.xmlConfig.classes.Point" id="pointA">
+        <property name="x" value="0"/>
+        <property name="y" value="0"/>
+    </bean>
+  
+   
+  
+    <bean class="spring.core.xmlConfig.classes.Point" id="pointC">
+        <property name="x" value="20"/>
+        <property name="y" value="0"/>
+    </bean>
+</beans>
